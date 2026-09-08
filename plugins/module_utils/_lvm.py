@@ -102,12 +102,8 @@ def pvchange_runner(module: AnsibleModule, **kwargs) -> CmdRunner:
             metadataignore=cmd_runner_fmt.as_bool(
                 ["--metadataignore", "y"], ["--metadataignore", "n"], ignore_none=True
             ),
-            addtag=cmd_runner_fmt.as_func(
-                lambda tags: [x for t in tags for x in ("--addtag", t)], ignore_none=True
-            ),
-            deltag=cmd_runner_fmt.as_func(
-                lambda tags: [x for t in tags for x in ("--deltag", t)], ignore_none=True
-            ),
+            addtag=cmd_runner_fmt.as_func(lambda tags: [x for t in tags for x in ("--addtag", t)], ignore_none=True),
+            deltag=cmd_runner_fmt.as_func(lambda tags: [x for t in tags for x in ("--deltag", t)], ignore_none=True),
             device=cmd_runner_fmt.as_list(),
         ),
         **kwargs,
